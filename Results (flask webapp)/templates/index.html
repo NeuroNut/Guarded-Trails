@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Route Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Guarded Trails</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="hero-section text-center py-5 mb-5">
+            <h1 class="display-4">Safe Route Prediction System</h1>
+            <p class="lead">Using machine learning to identify safest paths through crime-prone areas</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Project Approaches</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/approach" method="POST">
+                            <div class="mb-3">
+                                <label for="approachSelect" class="form-label">Select Approach:</label>
+                                <select class="form-select" id="approachSelect" name="approach">
+                                    <option value="1">1. KDE</option>
+                                    <option value="2">2. K-Means Clustering</option>
+                                    <option value="3">3. Decsion Tree</option>
+                                    <option value="4">4. Boosting</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Show Results</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5>NYC Crime Dataset</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Dataset containing crime records from New York City</p>
+                        <ul>
+                            <li>880,000+ records</li>
+                            <li>15 features including location, time, and crime type</li>
+                            <li>Filtered to relevant street crimes</li>
+                        </ul>
+                        <div class="d-grid gap-2">
+                            <a href="/dataset" class="btn btn-outline-success">View Sample</a>
+                            <a href="/download_dataset" class="btn btn-success">Download Dataset</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5>Project Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This project develops a system that predicts the safest routes on maps by analyzing criminal activities along different paths. The system is particularly valuable for:</p>
+                        <ul>
+                            <li>Night-time travel safety</li>
+                            <li>Secure courier deliveries</li>
+                            <li>Tourist navigation in unfamiliar areas</li>
+                            <li>Personal safety applications</li>
+                        </ul>
+                        <p>We implemented four distinct machine learning approaches to solve this problem, each with different strengths and characteristics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>Guarded Trails &copy; 2024 | Data Mining Project</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
